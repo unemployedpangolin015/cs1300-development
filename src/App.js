@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Heading, ChakraProvider, Grid, GridItem, SimpleGrid, Box, Center, Text } from '@chakra-ui/react';
+import { Heading, ChakraProvider, Grid, GridItem, SimpleGrid, Box, Center } from '@chakra-ui/react';
 
 import PokemonCard from './components/PokemonCard';
 import Sidebar from './components/Sidebar';
