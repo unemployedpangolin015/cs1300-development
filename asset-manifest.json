@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/cs1300-development/static/css/main.e6c13ad2.css",
-    "main.js": "/cs1300-development/static/js/main.fb33d864.js",
+    "main.js": "/cs1300-development/static/js/main.dcf15698.js",
     "index.html": "/cs1300-development/index.html",
     "main.e6c13ad2.css.map": "/cs1300-development/static/css/main.e6c13ad2.css.map",
-    "main.fb33d864.js.map": "/cs1300-development/static/js/main.fb33d864.js.map"
+    "main.dcf15698.js.map": "/cs1300-development/static/js/main.dcf15698.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.fb33d864.js"
+    "static/js/main.dcf15698.js"
   ]
 }
