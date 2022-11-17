@@ -44,6 +44,10 @@ function App() {
     }
   }
 
+  const isFavorite = (name) => {
+    return favorites.includes(name);
+  }
+
   const selectFilterType = (eventKey, add) => {
     if (add) {
       setType([...type, eventKey]);
@@ -75,9 +79,7 @@ function App() {
     return true;
   }
 
-  const filteredData = data.filter(matchesFilterType);
   const selectSortType = (sort) => {
-
     if (sort === 'Name') {
       setSortName(!sortName);
     } else {
@@ -85,14 +87,13 @@ function App() {
     }
   }
 
-  let sortedData = filteredData.sort((a, b) => {
+  let sortedData = data.filter(matchesFilterType).sort((a, b) => {
     if (sortName && sortHp) {
       const diff = a.name.localeCompare(b.name);
 
       if (diff === 0) {
         return a.total - b.total;
       }
-
       return diff;
     } else if (sortName) {
       return a.name.localeCompare(b.name);
@@ -128,7 +129,7 @@ function App() {
         <GridItem colSpan={4}>
           <Center>
             <SimpleGrid
-              columns={[2, null, 2, null, 4]}
+              columns={[1, null, 2, null, 4]}
               spacing={4}
             >
               {sortedData.map((item, idx) =>
@@ -140,6 +141,7 @@ function App() {
                     total={item.total}
                     src={`${item.name.toLowerCase()}.png`}
                     onClick={addToFavorites}
+                    isFavorite={isFavorite}
                   />
                 </Box>)}
             </SimpleGrid>
