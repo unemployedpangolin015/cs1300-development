@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import {
   Card,
@@ -22,7 +22,7 @@ import { BsBug } from 'react-icons/bs';
 import { IoWaterOutline } from 'react-icons/io5';
 
 const PokemonCard = (props) => {
-  const [isFavorite, setIsFavorite] = useState(false);
+  const isFavorite = props.isFavorite(props.name);
 
   const getIcons = (type1, type2) => {
     const icons = [];
@@ -54,11 +54,11 @@ const PokemonCard = (props) => {
     return icons;
   }
 
-  return <Card maxW='sm'>
+  return <Card maxW='sm' boxShadow='2xl'>
     <CardBody>
       <Image
         src={props.src}
-        alt='Green double couch with wooden legs'
+        alt={props.name}
         borderRadius='lg'
       />
       <Stack mt='6' spacing='3'>
@@ -79,9 +79,9 @@ const PokemonCard = (props) => {
     <CardFooter>
       <Button variant={!isFavorite ? 'solid' : 'outline'} colorScheme='blue' onClick={() => 
         {
-          setIsFavorite(!isFavorite)
           props.onClick([props.name, props.total], !isFavorite);
-        }}>{ !isFavorite ? 'Add to Favorites' : 'Remove from Favorites' }</Button>
+        }}>{ !isFavorite ? 'Add to Favorites' : 'Remove from Favorites' }
+        </Button>
     </CardFooter>
   </Card>
 }
