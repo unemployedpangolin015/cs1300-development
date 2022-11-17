@@ -20,7 +20,7 @@ const Sidebar = (props) => {
   const [favoriteChecked, setFavoriteChecked] = useState(false);
 
   return (
-    <Accordion defaultIndex={[0]} allowMultiple maxW='sm'>
+    <Accordion defaultIndex={[0,1,2]} allowMultiple maxW='sm'>
       <AccordionItem>
         <h2>
           <AccordionButton>
