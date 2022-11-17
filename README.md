@@ -37,14 +37,13 @@ This is the top level component. It has state for:
 
 These state variables control what cards show up on the grid of cards by doing sorting or filtering after user specification. 
 
-These state variables are changed through functions like `addToFavorites`, `selectSortType`, and `selectFilterType`. These functions are passed into the `Sidebar` and `PokemonCard` components. 
+These state variables are changed through functions like `addToFavorites`, `selectSortType`, and `selectFilterType`. These functions are passed into the `Sidebar` and `PokemonCard` components. Another function, `isFavorite`, checks if the Pokemon is a favorite by name. This function is passed into `PokemonCard`. 
 
 #### Sidebar
 The sidebar has state for whether the checkboxes are checked or not for the types checkboxes and the favorites checkboxes. It takes in two functions as props. The first function (`selectFilterType`) selects the filter type, and the second function (`selectSortType`) selects the sort type. These two functions are called when the checkbox is checked or unchecked, and will modify state in App through these functions. 
 
 #### PokemonCard
-The PokemonCard has state for whether the card is a favorite. The PokemonCard
-component takes in a function as a prop, `addToFavorites`. When the button is clicked, the function is called so that the pokemon can be added to `favorites` in App. 
+The PokemonCard component takes in a function as a prop, `addToFavorites`. When the button is clicked, the function is called so that the pokemon can be added to `favorites` in App. 
 
 ### How the User Triggers State Changes
 
@@ -54,5 +53,5 @@ When the user checks one of the sort boxes in the sidebar, `onChange` triggers a
 When the user checks the favorites or types box in the sidebar, `onChange` triggers a series of function calls. It checks whether the state for that specific checkbox is true or not (e.g. whether the box is already checked or not). Then, it calls `onSelect / selectFilterType`, passes in the filter, and whether the filter should be added or removed. Then, it modifies the state for that checkbox itself (e.g. `favoriteChecked` for if the favorites checkbox is checked or not). Then, due to the change in state, the grid data that shows up is different because filters are added and/or removed. 
 
 ### Pokemon Card
-When the user clicks the "Add to Favorites" button, `onClick` triggers a series of function calls. First, it modifies the PokemonCard's state for if it is a favorite or not (`isFavorite`). Then, it calls `onClick / addToFavorites`, which either adds or removes the pokemon to `favorites` in App, depending on if it is currently a favorite or not. If the user clicks on "Add to Favorites", the Pokemon shows up on the list of favorites, and the button changes to a white button with the text changing to "Remove from Favorites". Then, if the user clicks the button again, the Pokemon disappears from the list of favorites, the button changes to a blue button, and the text changes to "Add to Favorites".
+When the user clicks the "Add to Favorites" button, `onClick` triggers a series of function calls. It calls `onClick / addToFavorites`, which either adds or removes the pokemon to `favorites` in App, depending on if it is currently a favorite or not. If the user clicks on "Add to Favorites", the Pokemon shows up on the list of favorites, and the button changes to a white button with the text changing to "Remove from Favorites". Then, if the user clicks the button again, the Pokemon disappears from the list of favorites, the button changes to a blue button, and the text changes to "Add to Favorites".
 
