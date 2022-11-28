@@ -13,7 +13,8 @@ import {
   HStack,
   Tag,
   TagLabel,
-  TagRightIcon
+  TagRightIcon, 
+  Wrap, 
 } from '@chakra-ui/react';
 
 import { RiLeafLine, RiFireLine } from 'react-icons/ri';
